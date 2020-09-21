@@ -18,8 +18,8 @@ export default class App extends Component {
   render(){
     return (
       <div className="App">
-        <Article articles={this.state.news}/>
-        <ListNews/>
+        <ListNews articles={this.state.news}/>
+        {/* <Article articles={this.state.news}/> */}
       </div>
     )
   }
