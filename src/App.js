@@ -11,7 +11,7 @@ export default class App extends Component {
 
   async componentDidMount(){
   const news = await getAllNews();
-  this.setState({ news: news });
+  this.setState({ news: news.articles });
   console.log('this is state',this.state.news)
   }
 
