@@ -10,20 +10,22 @@ export default class ListNews extends Component {
   render() {
       console.log(this.props)
        
-          return {this.props.articles.map((obj, idx) => {
-            return (
+        return (
+
+        <div>
+        {this.props.articles.map((obj, idx) => {
+                return (
         <Card key={idx} style={{ width: "18rem" }}>
-            <Card.Img  variant="top" src={this.props.articles.urlToImage}/>
+            <Card.Img  variant="top" src={obj.urlToImage}/>
               <Card.Body>
-                <Card.Title>{this.props.articles.title}</Card.Title>
-                <Card.Text> {this.props.articles.description} </Card.Text>
+                <Card.Title>{obj.title}</Card.Title>
+                <Card.Text> {obj.description} </Card.Text>
                 <Button variant="primary">Go somewhere</Button>
               </Card.Body>
-                
         </Card>
-         )}
-      
-  
+         )})
          }
+        </div>
+        );
 }
 }
