@@ -5,6 +5,8 @@ This web application is developed for viewing most recent news!
 
 JavaScipt, React, JSON, HTML, CSS, BootStrap
 
-## Use link below to open page
+## Instarctions below to run application
 
-<a href="https://amir9499-99.github.io/news-feed/">News</a>
+1. git clone https://github.com/Amir9499-99/news-feed.git
+2. cd news-feed
+3. npm start
