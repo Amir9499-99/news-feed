@@ -10,7 +10,6 @@ export default class ListNews extends Component {
 
   render() {
     return (
-
       <div className="news-list">
         {this.props.articles.map((article, idx) => {
           return (

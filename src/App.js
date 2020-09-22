@@ -31,6 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <div className="header"> <a href="/">News </a>  </div>
         <Switch>
           <Route exact path="/">
             <ListNews
