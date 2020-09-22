@@ -1,31 +1,29 @@
 import React, { Component } from "react";
-import {Card} from 'react-bootstrap'
-import {Button} from 'react-bootstrap'
+import { Card, Button  } from "react-bootstrap";
+import "./ListNews.css";
 
 export default class ListNews extends Component {
-    state = {
-        articles: []
-    }
+  state = {
+    articles: [],
+  };
 
   render() {
-      console.log(this.props)
-       
-        return (
+    return (
 
-        <div>
+      <div className="news-list">
         {this.props.articles.map((obj, idx) => {
-                return (
-        <Card key={idx} style={{ width: "18rem" }}>
-            <Card.Img  variant="top" src={obj.urlToImage}/>
+          return (
+            <Card key={idx} style={{ width: "18rem" }}>
+              <Card.Img variant="top" src={obj.urlToImage} />
               <Card.Body>
                 <Card.Title>{obj.title}</Card.Title>
                 <Card.Text> {obj.description} </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button onClick={(e) => { this.props.handleClick(e); }} variant="primary">View News</Button>
               </Card.Body>
-        </Card>
-         )})
-         }
-        </div>
-        );
-}
+            </Card>
+          );
+        })}
+      </div>
+    );
+  }
 }
