@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Article from "./components/Article/Article";
 import ListNews from "./components/ListNews/ListNews";
-import { Switch, Route, withRouter} from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import { getAllNews } from "./services/news-api";
 import "./App.css";
 
 class App extends Component {
   state = {
     news: [],
+    article: [],
   };
 
   async componentDidMount() {
@@ -16,21 +17,29 @@ class App extends Component {
     console.log("this is state", this.state.news);
   }
 
-  handleCLick = (e) => {
-    e.preventDefault()
-    this.props.history.push('/article');
-    console.log('clicked')
+  handleCLick = async (e, article) => {
+    e.preventDefault();
+    let articleValue = await article;
+    this.setState({ article: articleValue });
+    this.props.history.push("/article");
   };
+
+  handleBack = () => {
+    this.props.history.push("/");
+    }
 
   render() {
     return (
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <ListNews articles={this.state.news} handleClick={this.handleCLick}/>;
+            <ListNews
+              articles={this.state.news}
+              handleClick={this.handleCLick}
+            />
           </Route>
           <Route exact path="/article">
-            <Article articles={this.state.news} handleClick={this.handleCLick} />;
+            <Article article={this.state.article} handleBack={this.handleBack} />;
           </Route>
         </Switch>
       </div>
@@ -38,5 +47,4 @@ class App extends Component {
   }
 }
 
-
-export default withRouter(App)
+export default withRouter(App);
